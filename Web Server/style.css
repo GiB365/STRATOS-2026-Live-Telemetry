@@ -1,0 +1,234 @@
+:root {
+  --bg-color: rgb(30, 54, 54);
+  --bg-color-2: rgb(86, 119, 119);
+  --bg-color-3: rgb(57, 88, 88);
+
+  --highlight-color: rgb(176, 190, 186);
+}
+
+body {
+  background: var(--bg-color);
+  margin: 0;
+
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.menubar {
+  width: 100%;
+  height: 5vh;
+
+  background-color: var(--highlight-color);
+
+  display: grid;
+  grid-template-rows: 1;
+  grid-template-columns: repeat(3, 1fr);
+
+  align-items: center;
+}
+
+.title {
+  font-weight: bold;
+
+  justify-self: center;
+
+  grid-column: 2;
+}
+
+.creator {
+  justify-self: right;
+
+  margin-right: 1vw;
+  font-size: 0.7em;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 35%;
+  padding-right: 25%;
+}
+
+.menubar a {
+  background: transparent;
+  border: none;
+
+  text-decoration: underline;
+  color: darkslategray;
+}
+
+.menubar a:hover {
+  color: slategray;
+}
+
+#maps, #graphs, #details {
+  height: 95vh;
+  width: 100vw;
+  position: absolute;
+
+  background-color: var(--bg-color);
+}
+
+#map { 
+  height: 100%;
+  width: 100%;
+}
+
+.icons-sprite {
+    background-image: url('aprs-symbols.png');
+    background-color: transparent;
+    display: block;
+}
+
+.icon-balloon {
+    background-position: 93.5% 40%;
+    background-size: 1600% auto;
+    width: 48px;
+    height: 48px;
+}
+
+#graphs {
+  display: grid;
+
+  width: 100vw;
+
+  padding: 30px;
+  padding-top: 0;
+  box-sizing: border-box;
+
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 10px;
+  place-items: center;
+}
+
+.graph {
+  background: var(--bg-color-3);
+  border-radius: 7px;
+
+  display: flex;
+  justify-content: center;
+
+  padding: 10px;
+  box-sizing: border-box;
+
+  width: 30vw;
+  height: 30vh;
+}
+
+.graph > canvas {
+  background: var(--highlight-color);
+  border-radius: 7px;
+
+  padding: 10px;
+}
+
+
+#details {
+  height: fit-content;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  padding-top: 5%;
+}
+
+img {
+  max-width: 100%;
+}
+
+#details > div {
+  background: var(--bg-color-2);
+  padding: 1.5%;
+  padding-top: 0;
+  border-radius: 7px;
+
+  border: 5px solid var(--highlight-color);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.welcome {
+  width: 22%;
+
+  margin-bottom: 5%;
+}
+
+.timer {
+  width: 50%;
+
+  margin-bottom: 5%;
+}
+
+.timer > h2 {
+  margin-bottom: 0 !important;
+}
+
+.timer > div {
+  font-size: 5em;
+
+  border: 2px solid black;
+  border-radius: 7px;
+  padding: 1%;
+
+  width: 80%;
+
+  background: var(--bg-color-3);
+}
+
+.timer > p {
+  font-size: 0.7em;
+  
+}
+
+.block {
+  width: 45%;
+
+  margin-bottom: 5%;
+}
+
+.baofeng {
+  width: 50%;
+
+  margin-bottom: 5%;
+}
+
+.protoboard {
+  width: 40%;
+
+  margin-bottom: 5%;
+}
+
+.mx614 {
+  width: 50%;
+
+  margin-bottom: 5%;
+}
+
+.pcb {
+  width: 40%;
+
+  margin-bottom: 5%;
+}
+
+.soldering {
+  width: 45%;
+  margin-bottom: 5%;
+}
+
+.roof-testing {
+  width: 50%;
+
+  margin-bottom: 5%;
+}
+
+#details h2 {
+  margin-bottom: 30px;
+
+  border-bottom: 2px solid black;
+
+  width: 50%;
+}

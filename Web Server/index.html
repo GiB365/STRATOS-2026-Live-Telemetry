@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balloon Telemetry Info</title>
+</head>
+<link rel="stylesheet" type="text/css" href="leaflet.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+<body>
+    <div class="menubar">
+        <div class="tabs">
+            <a id="maps-button" href="./maps.html">Maps</a>
+            <a id="graphs-button" href="./charts.html">Graphs</a>
+            <a id="details-button" href="./index.html">Details</a>
+        </div>
+
+        <div class="title">2026 STRATOS - Radio Communication Module</div>
+        <div class="creator">Gabriel Jacques</div>
+    </div>
+    
+    <div id="details">
+        <div class="welcome">
+            <h2>Welcome!</h2>
+
+            <p>This site will provide live telemetry through HAM radio for the 2026 STRATOS launch.</p>
+            <p>Scroll down for more information on the project or use the menu bar to look at the data.</p>
+        </div>
+
+        <div class="timer">
+            <h2>Launch Clock</h2>
+            <p>Dependant on weather conditions</p>
+            <p>The launch was dependant on weather conditions and is now to be determined on the fly</p>
+            <div id="launch-clock">T-99:99:99</div>
+        </div>
+
+        <div class="block">
+            <h2>Block Diagram</h2>
+            
+            <img src="imgs/block-diagram.png">
+        </div>
+
+        <div class="baofeng">
+            <h2>Baofeng UV-5R</h2>
+        
+            <p>
+                It might seem like the Baofeng UV-5R is a strange choice for a weather balloon because of it's weight and size but it's price considerably lower than lighter and simpler transmiter modules. 
+                Also, in hindsight, I get to keep the radio after recovery (if it is still functional) and make it can come off as an expense for my project. :)
+            </p>
+
+            <img src="imgs/baofeng.jpg" alt="">
+
+            <p>
+                A problem that comes with the Baofeng it that it requires a battery.
+                The fix was to carve out a battery casing and insert a DC buck converter to take the balloon's 25V power supply down to 8V.
+            </p>
+
+            <img src="imgs/battery.jpg" alt="">
+        </div>
+
+        <div class="protoboard">
+            <h2>Protoboard</h2>
+
+            <p>
+                My first idea was to simply have the ESP-32 do all the work using its I2C pins.
+                I quickly ran into problem because of my unorganized wiring causing interference and the frequencies generated being off frequency.
+            
+                <br><br>
+
+                Sadly, this iteration was so unsuccessful that I didn't even bother to take a picture.
+            </p>
+        </div>
+
+        <div class="mx614">
+            <h2>MX614</h2>
+
+            <p>
+                My next idea was to use a MX614 to generate the AFSK signals.
+                This should stabilize the frequencies given to the radio as the ESP-32 only generate the data and clock signals.
+
+                <br>
+
+                This was not the case.
+                
+                <br>
+
+                The packets produced could not be decoded.
+                My main suspicions were the clock signal and maybe the awful spaghetti wiring causing interference.
+            </p>
+
+            <img src="imgs/spaghetti.jpg" alt="">
+
+        </div>
+
+        <div class="pcb">
+            <h2>PCB</h2>
+
+            <p>
+                My final design was to create a custom pcb for my project to completely remove stray wires from the module.
+            </p>
+
+            <img src="/imgs/pcb.png" alt="">
+
+            <p>
+                Even if the design had a few (many) flaws, such as the transistor being used as an optocoupler and the pins for the NEO-M8 being in the wrong order, I am happy with the design because it worked in the end.
+
+            </p>
+
+            <img src="/imgs/complete.jpg" alt="">
+        </div>
+
+        <div class="soldering">
+            <h2>Soldering</h2>
+
+            <p>
+                I still believe that the oscillator is correctly soldered to the pcb is a miracle
+                Even if two ESP-32s were injured in the process the 2.5mm x 2.0mm oscillator was successfully secured to the pcb.
+                Bellow is an image with the smallest soldering tip at my disposal compared to the components that were soldered.
+            </p>
+
+            <img src="imgs/soldering.jpg" alt="">
+
+        </div>
+
+        <div class="roof-testing">
+            <h2>Roof Testing</h2>
+
+            <p>In order to test the transmiter, receiver and website I setup my ground station on my roof in order to receive packets from the payload while it was being driven around.</p>
+        
+            <img src="imgs/roof.jpg" alt="">
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
